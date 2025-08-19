@@ -1,0 +1,377 @@
+/* dashboard.css */
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 2rem;
+  overflow-x: hidden;
+  /* animated subtle background */
+  background-size: 400% 400%;
+  animation: backgroundShift 20s ease infinite;
+}
+
+/* Background animation */
+@keyframes backgroundShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Container with glass effect */
+.container {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: 900px;
+  width: 100%;
+  padding: 3rem 3.5rem;
+  animation: fadeInScale 0.8s ease forwards;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Navigation Bar */
+.dashboard-nav {
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  user-select: none;
+  letter-spacing: 0.12em;
+}
+
+.dashboard-nav a {
+  color: #ffd700;
+  text-decoration: none;
+  margin: 0 1.5rem;
+  position: relative;
+  transition: color 0.3s ease;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.dashboard-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background: #ffd700;
+  left: 50%;
+  bottom: -6px;
+  transition: all 0.3s ease;
+  border-radius: 2px;
+}
+
+.dashboard-nav a:hover,
+.dashboard-nav a:focus {
+  color: #fff;
+  outline: none;
+}
+
+.dashboard-nav a:hover::after,
+.dashboard-nav a:focus::after {
+  width: 100%;
+  left: 0;
+}
+
+/* Header */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-header h1 {
+  font-size: 2.4rem;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  flex: 1 1 auto;
+  margin-right: 1rem;
+}
+
+.logout-btn {
+  background: #ff3860;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.6rem;
+  font-weight: 700;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 56, 96, 0.5);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.logout-btn:hover,
+.logout-btn:focus {
+  background: #ff1e45;
+  transform: scale(1.1);
+  outline: none;
+  box-shadow: 0 8px 22px rgba(255, 30, 69, 0.7);
+}
+
+/* Section Titles */
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.25rem;
+  text-align: center;
+  text-shadow: 1px 1px 6px rgba(0,0,0,0.6);
+  letter-spacing: 0.05em;
+}
+
+/* Candidate List */
+.candidate-list {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.8rem;
+  margin-bottom: 3.5rem;
+}
+
+.candidate-list li {
+  background: linear-gradient(145deg, #6a11cb, #2575fc);
+  border-radius: 20px;
+  padding: 1.2rem 2.5rem 1.2rem 3rem;
+  min-width: 170px;
+  text-align: center;
+  color: white;
+  font-weight: 600;
+  box-shadow:
+    0 8px 15px rgba(38, 91, 230, 0.4),
+    inset 0 0 20px rgba(255, 255, 255, 0.12);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.4s ease;
+}
+
+/* Candidate symbol - animated glowing dot */
+.candidate-list li::before {
+  content: '';
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #ffda44;
+  box-shadow:
+    0 0 12px #ffda44,
+    0 0 28px #ffda44;
+  animation: pulse 2.5s infinite ease-in-out;
+}
+
+/* Hover effect for candidates */
+.candidate-list li:hover {
+  transform: scale(1.07);
+  box-shadow:
+    0 18px 30px rgba(38, 91, 230, 0.75),
+    inset 0 0 25px rgba(255, 255, 255, 0.18);
+  background: linear-gradient(145deg, #7f3df6, #3593fc);
+}
+
+/* Voting Form */
+.vote-action {
+  max-width: 430px;
+  margin: 0 auto 3rem auto;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.12);
+  animation: fadeInUp 0.8s ease forwards;
+  user-select: none;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Form Label */
+#voteForm label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 700;
+  color: #eee;
+  letter-spacing: 0.02em;
+}
+
+/* Candidate Select */
+#candidateSelect {
+  width: 100%;
+  padding: 0.6rem 1.1rem;
+  font-size: 1.1rem;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  margin-bottom: 1.8rem;
+  cursor: pointer;
+  background: #764ba2;
+  color: white;
+  box-shadow: inset 0 3px 10px rgba(0,0,0,0.3);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image:
+    url("data:image/svg+xml,%3Csvg fill='white' height='18' viewBox='0 0 24 24' width='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 18px;
+}
+
+/* On focus/hover */
+#candidateSelect:hover,
+#candidateSelect:focus {
+  background: #5e3a82;
+  box-shadow: inset 0 5px 14px rgba(0,0,0,0.5);
+  outline: none;
+}
+
+/* Vote Button */
+.vote-btn {
+  background: #ffd700;
+  border: none;
+  color: #333;
+  font-weight: 700;
+  padding: 0.9rem 1.6rem;
+  border-radius: 50px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.2rem;
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.7);
+  transition:
+    background 0.3s ease,
+    transform 0.25s ease,
+    box-shadow 0.3s ease;
+  user-select: none;
+}
+
+.vote-btn:hover,
+.vote-btn:focus {
+  background: #ffcb00;
+  transform: scale(1.08);
+  box-shadow: 0 14px 40px rgba(255, 203, 0, 0.85);
+  outline: none;
+}
+
+/* Message Area */
+.message-area {
+  margin-top: 1.8rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.15rem;
+  min-height: 28px;
+  padding: 0.5rem 1.2rem;
+  border-radius: 12px;
+  /* always visible: default transparent bg & color */
+  background-color: transparent;
+  color: transparent;
+  box-shadow: none;
+  pointer-events: none;
+  user-select: none;
+  transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Show message styling when .show is added */
+.message-area.show {
+  pointer-events: auto;
+  color: #fff;
+  background-color: rgba(0,0,0,0.3);
+  box-shadow:
+    0 6px 15px rgba(0,0,0,0.4);
+  user-select: text;
+}
+
+/* Success message style */
+.message-area.success {
+  background-color: #28a745dd;
+  color: #d4edda;
+  box-shadow: 0 6px 15px rgba(40, 167, 69, 0.75);
+  animation: popIn 0.4s ease forwards;
+}
+
+/* Error message style */
+.message-area.error {
+  background-color: #dc3545dd;
+  color: #f8d7da;
+  box-shadow: 0 6px 15px rgba(220, 53, 69, 0.75);
+  animation: popIn 0.4s ease forwards;
+}
+
+/* Animations */
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow:
+      0 0 12px #ffda44,
+      0 0 28px #ffda44;
+  }
+  50% {
+    box-shadow:
+      0 0 18px #fff176,
+      0 0 38px #fff176;
+  }
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
