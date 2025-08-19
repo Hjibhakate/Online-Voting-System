@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register - Online Voting System</title>
+ <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Register</h1>
+
+    <form id="registerForm">
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" name="fullName" required />
+
+      <label for="voterId">Voter ID:</label>
+      <input type="text" id="voterId" name="voterId" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p>Already registered? <a href="/">Login here</a></p>
+  </div>
+
+  <script src="{{ url_for('static', filename='register.js') }}"></script>
+</body>
+</html>

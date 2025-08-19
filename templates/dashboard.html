@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - Online Voting System</title>
+
+  <!-- Link to dashboard CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}" />
+
+  <!-- Optional: Add favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+</head>
+<body>
+
+
+
+
+
+
+  <div class="container">
+
+
+    <nav class="dashboard-nav">
+  <a href="/" data-link>Candidate List</a> |
+  <a href="/vote" data-link>Cast Vote</a>
+</nav>
+    <!-- Header Section -->
+    
+    
+    
+    <header class="dashboard-header">
+      <h1>Welcome, {{ fullName }}</h1>
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </header>
+    
+
+    <!-- Candidate List Section -->
+    <section class="voting-section">
+      <h2>Available Candidates</h2>
+      <ul id="candidateList" class="candidate-list">
+        <!-- Candidate names and symbols will be dynamically inserted here -->
+      </ul>
+    </section>
+
+    <!-- Voting Form Section -->
+    <section class="vote-action">
+      <h2>Cast Your Vote</h2>
+      <form id="voteForm">
+        <label for="candidateSelect">Select a Candidate:</label>
+        <select id="candidateSelect" name="candidate" required>
+          <option value="" disabled selected>Select candidate</option>
+          <!-- Candidate options will be dynamically inserted here -->
+        </select>
+        <button type="submit" class="vote-btn">Vote</button>
+      </form>
+    </section>
+
+    <!-- Message area for success/errors -->
+    <div id="message" class="message-area"></div>
+  </div>
+
+  <!-- Link to dashboard JavaScript -->
+  <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

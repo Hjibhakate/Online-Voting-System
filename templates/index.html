@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Online Voting System</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the Online Voting System</h1>
+
+    <form id="loginForm">
+      <label for="voterId">Voter ID:</label>
+      <input type="text" id="voterId" name="voterId" required>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required>
+
+      <button type="submit">Login</button>
+    </form>
+
+    <p>Don't have an account? <a href="/register">Register here</a></p>
+  </div>
+
+<script src="{{ url_for('static', filename='index.js') }}"></script>
+</body>
+</html>
